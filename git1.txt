@@ -17,10 +17,56 @@ $ git init    把上述目录变成Git可以管理的仓库，结果显示当前
 
 把文件添加到版本库：
 只能跟踪文本文件的改动，比如TXT文件、网页、程序代码等
-必须放到learngit目录下（子目录也可）
-1.
-$ git add git 1.txt     命令git add告诉Git，把文件添加到仓库。“没有消息就是好消息”
-2.
-$ git commit -m "wrote a file for learning git"
--m后面输入的是本次提交的说明，可以输入任意内容
+必须放到learngit目录下（子目录也可）  放入工作区
+1.放入暂存区
+$ git add git1.txt     命令git add告诉Git，把文件添加到仓库。“没有消息就是好消息”
+2.提交到分支
+$ git commit -m "wrote the first file for learning git"
+-m后面输入的是本次提交的说明，可以输入本次修改大致内容
+该命令下会显示文件的改动
+commit可以一次提交很多文件，例：
+$ git add git2.txt
+$ git add git3.txt git4.txt
+$ git commit -m"add 3 files."
+
+查看文件修改：
+$ git status       查看工作区状态，要随时查看
+$ git diff git1.txt     查看具体修改内容，按q退出当前进行下一个命令
+
+若确认修改无误，提交修改：
+$ git add git1.txt
+$ git status    在执行第二步commit之前，可以再次查看当前仓库的状态
+$ git commit -m"add distributed"     放心提交修改后的文件
+
+查看修改历史记录：
+$ git log    输出结果中commit后的串串是相应版本的ID，退回该版本所需要的
+$ git log --pretty=oneline   查看简化的修改记录
+
+回退到之前版本：
+$ git reset --hard HEAD^   回退到最后一次修改前的版本
+$ cat git1.txt     查看文件内容
+
+使用版本ID再回到未来：
+$ git reset --hard 1094a        hard后面写ID的前几位即可
+$ cat git1.txt
+
+另一种方法查看ID：
+$ git reflog      所有的命令历史，ID历史
+
+查看工作区和版本库里面最新版本的区别：
+$ git diff HEAD -- git1.txt
+
+丢弃工作区的修改：
+$ git checkout -- git1.txt   将其在工作区的修改全部撤销
+
+撤销暂存区的修改：
+$ git reset HEAD git1.txt
+
+删除文件：
+$ rm file.txt
+$ git status
+确认删除
+$ git rm file.txt
+还原删除
+$ git checkout -- file.txt
 
