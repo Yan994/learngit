@@ -1,0 +1,26 @@
+﻿git 是分布式版本控制系统
+https://git-scm.com/downloads GIT下载地址
+自然安装之后，还需要最后一步设置，在Git Bash的命令行输入：
+$git config --global user.name "Yan"
+$git config --global user.email "cyy_1994@126.com"
+上面的--global参数，表示本台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和email地址。
+
+创建版本库：
+1.
+版本库又名仓库，英文名repository，可简单理解为一个目录，里面的所有文件都可以被Git管理，修改删除都能跟踪。
+首先，选择一个合适的地方，创建一个空目录：
+$ mkdir learngit   创建一个directory
+$ cd learngit     进入该文件夹
+$ pwd       用于显示当前目录
+2.
+$ git init    把上述目录变成Git可以管理的仓库，结果显示当前目录下多了一个.git的目录，不要手动修改。
+
+把文件添加到版本库：
+只能跟踪文本文件的改动，比如TXT文件、网页、程序代码等
+必须放到learngit目录下（子目录也可）
+1.
+$ git add git 1.txt     命令git add告诉Git，把文件添加到仓库。“没有消息就是好消息”
+2.
+$ git commit -m "wrote a file for learning git"
+-m后面输入的是本次提交的说明，可以输入任意内容
+
